@@ -1,11 +1,13 @@
-import http
-from http.client import HTTPResponse
 from django.shortcuts import render
-from .models import Cliente, Pedido,Articulo
 from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
-def index():
-    return HttpResponse("<h1></h1>")
+def index(request):
     
+    return render(request, 'index.html')
+
+
+def about(request):
+
+    return render(request,"about.html")
