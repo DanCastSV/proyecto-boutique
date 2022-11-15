@@ -14,3 +14,9 @@ def about(request):
 
 def contacto(request):
     return render(request, "contacto.html")
+
+def lte(request):
+    return render(request, "lte.html")
+
+def registro(request):
+    return render(request, "register.html")
