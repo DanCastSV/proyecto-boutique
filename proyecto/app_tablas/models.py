@@ -5,6 +5,7 @@ class Cliente(models.Model):
     direccion = models.CharField(max_length=80)
     email = models.EmailField()
     tfno = models.CharField(max_length=9)
+    
 
     def __str__(self):
         return (self.nombre)

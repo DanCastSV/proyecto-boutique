@@ -6,6 +6,9 @@ urlpatterns = [
     path('about/', about),
     path('contacto/', contacto),
     path('lte/', lte),
-    path('registro/', registro)
+    path('registro/', registro),
+    path('clientes/', clientes),
+    path('regclientes/', regclientes)
+    
 
 ]
