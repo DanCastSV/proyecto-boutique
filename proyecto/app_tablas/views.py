@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
@@ -21,7 +22,16 @@ def lte(request):
     return render(request, "lte.html")
 
 def registro(request):
-    return render(request, "register.html")
+    form=UserCreationForm
+
+    if request.method=="post":
+        form=UserCreationForm(request.post)
+        if form.is_valid():
+            form.save
+
+
+    context={"form":form}
+    return render(request, "register.html", context)
 
 def clientes(request):
     cliente = Cliente.objects.all()

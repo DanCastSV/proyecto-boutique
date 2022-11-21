@@ -1,102 +1,49 @@
 {%load static%}
 <!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registro | Perla de Oriente </title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{%static 'lib/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css'%}">
-  <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{%static 'lib/AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css'%}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{%static 'lib/AdminLTE-3.2.0/dist/css/adminlte.min.css'%}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
-<body class="hold-transition register-page">
-<div class="register-box">
-  <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="" class="h1"><b>Boutique</b>"Perla de oriente"</a>
-    </div>
-    <div class="card-body">
-      <p class="login-box-msg">Registrate</p>
-
-      <form action="../../index.html" method="post">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre Completo ">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-user"></span>
-            </div>
-          </div>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <nav class="navbar  navbar-expand" style="background-color: #00c781;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="http://127.0.0.1:8000">Boutique perla de oriente</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/contacto">Contactanos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/about">Acerca de nosotros</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/lte">Inicia Sesion</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/registro/">registrate</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Buscar">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
-        <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Correo electronico">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Contreseña">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Valida Contreseña">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <div class="icheck-primary">
-              <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-              <label for="agreeTerms">
-               Acepto los <a href="#">terminos y condiciones</a>
-              </label>
-            </div>
-          </div>
-          <!-- /.col -->
-          <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" >Registrate</button>
-          </div>
-          <!-- /.col -->
-        </div>
-      </form>
-
-      <div class="social-auth-links text-center">
-        <a href="#" class="btn btn-block btn-primary">
-          <i class="fab fa-facebook mr-2"></i>
-         Registrate con Facebook
-        </a>
-        <a href="#" class="btn btn-block btn-danger">
-          <i class="fab fa-google-plus mr-2"></i>
-          Registrate con Google+
-        </a>
       </div>
+    </nav>
 
-      <a href="/lte" class="text-center">Ya tengo una cuenta</a>
-    </div>
-    <!-- /.form-box -->
-  </div><!-- /.card -->
-</div>
-<!-- /.register-box -->
+    {% block content%}
+    <form method="post" action="">{% csrf_token %}
+      {{form}}
+      <button type="button" class="btn btn-outline-success">Crear Usuario</button>
+    </form>
+    {% endblock %}
 
-<!-- jQuery -->
-<script src="{%static 'lib/AdminLTE-3.2.0/plugins/jquery/jquery.min.js'%}"></script>
-<!-- Bootstrap 4 -->
-<script src="{%static 'lib/AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
-<!-- AdminLTE App -->
-<script src="{%static 'lib/AdminLTE-3.2.0/dist/js/adminlte.min.js'%}"></script>
+    <h1>Debido a problemas con el registro usa este boton para acceder al crud</h1>
+      <a href="/clientes/" class="btn btn-outline-dark">Ir al CRUD</a>
 </body>
-</html>
