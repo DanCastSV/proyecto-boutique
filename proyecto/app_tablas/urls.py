@@ -8,7 +8,10 @@ urlpatterns = [
     path('lte/', lte),
     path('registro/', registro),
     path('clientes/', clientes),
-    path('regclientes/', regclientes)
+    path('regclientes/', regclientes),
+    path('elimclientes/<id>', elimclientes),
+    path('editclientes/<id>', editclientes),
+    path('guarclientes/<id>', guarclientes)
     
 
 ]

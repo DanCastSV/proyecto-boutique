@@ -35,59 +35,33 @@
         </div>
       </nav>
      
-{% block content%}
+        {% block content%}
       <div class="container text-centyer">
         <div class="row">
-          <div class="col-6 ">
-            <form action="/regclientes/", method="post">{% csrf_token %}
+          <div class=" offset-3 col-6 ">
+            <form action="/guarclientes/{{cliente.id}}", method="post">{% csrf_token %}
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="name1"  id="name1" placeholder="name">
+                <input type="text" class="form-control" name="name1" value="{{cliente.nombre}}" id="name1" placeholder="name">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">direccion</label>
-                <input type="text" class="form-control" name="dic1" id="dic1" placeholder="col. example">
+                <input type="text" class="form-control" name="dic1" value="{{cliente.direccion}}" id="dic1" placeholder="col. example">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
-                <input type="email" class="form-control" name="ema1"  id="ema1"placeholder="example@example.com">
+                <input type="email" class="form-control" name="ema1"  value="{{cliente.email}}" id="ema1"placeholder="example@example.com">
               </div>
               <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">telefono</label>
-                <input type="text" class="form-control" name="tfno1" id="tfno1" placeholder="xxxxxxxx">
+                <input type="text" class="form-control" name="tfno1" value="{{cliente.tfno}}" id="tfno1" placeholder="xxxxxxxx">
               </div>
               <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">agregar registro</button>
+            <button type="submit" class="btn btn-primary mb-3">actualizar registro</button>
+            <a href="/clientes/" class="btn btn-outline-dark">Regresar</a>
           </div>
         </form>
-            <table id="mostrar" class="table table-bordered table-hover">
-              <thead>
-                <tr>
-                <th>Nombre</th>
-                <th>direccion</th>
-                <th>email</th>
-                <th>telefono</th>
-                <th>Editar</th>
-                <th>Borrar</th>
-              </tr>
-              </thead>
-              <tbody>
-                {%for cli in cliente %}
-                <tr>
-                  <td>{{cli.nombre}}</td>
-                  <td>{{cli.direccion}}</td>
-                  <td>{{cli.email}}</td>
-                  <td>{{cli.tfno}}</td>
-                  <td><a href="/editclientes/{{cli.id}}" class="btn btn-outline-warning">Editar</a></td>
-                  <td><a href="/elimclientes/{{cli.id}}" class="btn btn-outline-danger">Eliminar</a></td>
-                  {% endfor %}
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      {% endblock %}
+        {% endblock %}
 
  
 

@@ -36,4 +36,28 @@ def regclientes(request):
     nombre=nombre, direccion=direccion, email=email, tfno=tfno
    )
 
-   return redirect(request, "clientes.html")
+   return redirect('/clientes')
+
+def editclientes(request, id):
+    cliente=Cliente.objects.get(id=id)
+    
+    return render(request, 'editcliente.html', {"cliente":cliente})
+
+def guarclientes(request, id):
+   nombre=request.POST['name1']
+   direccion=request.POST['dic1']
+   email=request.POST['ema1']
+   tfno=request.POST['tfno1']
+   id=Cliente.objects.get(id=id)
+   id.nombre=nombre
+   id.direccion=direccion
+   id.email=email
+   id.tfno=tfno
+   id.save()
+
+   return redirect('/clientes')
+
+def elimclientes(request,id):
+    cliente=Cliente.objects.get(id=id)
+    cliente.delete()
+    return redirect('/clientes')
