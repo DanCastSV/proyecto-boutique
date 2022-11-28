@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import *
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 
 
@@ -19,19 +21,30 @@ def contacto(request):
     return render(request, "contacto.html")
 
 def lte(request):
+    if request.method == 'POST':
+        username=request.POST.get('username')
+        password=request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, username)
+            redirect('/register/')
     return render(request, "lte.html")
 
+
+class Registro(UserCreationForm):
+    class Meta:
+        model = User 
+        fields=['username','password1','password2','email','first_name','last_name']
+
+    
 def registro(request):
-    form=UserCreationForm
-
-    if request.method=="post":
-        form=UserCreationForm(request.post)
+    form=Registro()
+    if request.method == "POST":
+        form = Registro(request.POST)
         if form.is_valid():
-            form.save
-
-
-    context={"form":form}
-    return render(request, "register.html", context)
+           form.save()
+    return render(request, "register.html", {"form":form})
 
 def clientes(request):
     cliente = Cliente.objects.all()
