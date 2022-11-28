@@ -22,28 +22,57 @@
             <li class="nav-item">
               <a class="nav-link active" href="/about">Acerca de nosotros</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/lte">Inicia Sesion</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/registro/">registrate</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Buscar">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
+           
+        
         </div>
       </div>
     </nav>
 
     {% block content%}
-    <form method="post" action="">{% csrf_token %}
-      {{form}}
-      <button type="button" class="btn btn-outline-success">Crear Usuario</button>
+<h1>Registrar Usuario</h1>
+<div class="container">
+    <form method="post" action="/register/">{% csrf_token %}
+      <div class="form-group">
+        <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Nombre de Usuario</label>
+      
+         {{form.username}}
+        
+      </div>
+      <div class="form-group">
+        <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Email</label>
+        
+          {{form.email}}
+        
+      </div>
+      <div class="form-group">
+        <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Nombre</label>
+        
+          {{form.first_name}}
+        
+      </div>
+      <div class="form-group">
+        <label for="ExampleInputEmail" class="col-sm-2 col-form-label">Apellido</label>
+    
+          {{form.last_name}}
+    
+      </div>
+      <div class="form-group">
+        <label for="ExampleInputPassword" class="col-sm-2 col-form-label">Contraseña</label>
+        
+     
+          {{form.password1}}
+        </div>
+        <div class="form-group">
+        <label for="ExampleInputPassword" class="col-sm-2 col-form-label"> Confirmar Contraseña</label>
+            
+        {{form.password2}}
+      </div>
+      <button class="btn btn-outline-success">Crear Cuenta</button>
     </form>
+    <a href="/lte/">¿Ya tienes un Cuenta? Ingresa</a>
+  </div>
+
     {% endblock %}
 
-    <h1>Debido a problemas con el registro usa este boton para acceder al crud</h1>
-      <a href="/clientes/" class="btn btn-outline-dark">Ir al CRUD</a>
+    
 </body>

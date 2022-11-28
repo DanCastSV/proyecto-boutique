@@ -24,20 +24,18 @@
                 <a class="nav-link active" href="/about">Acerca de nosotros</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" href="/lte">Inicia Sesion</a>
-              </li><li class="nav-item">
-                <a class="nav-link active" href="/registro/">registrate</a>
+                <a class="nav-link active" href="/cerrarsesion/">cerrar sesion</a>
               </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Buscar">
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+             
+       
           </div>
         </div>
       </nav>
+      {% block content%}
 
       <div align="center"><h1>Bienvenidos a Boutique "Perla de oriente"</h1></div>
+      {{request.user}}
+      <br>
       <img src="https://i.ebayimg.com/thumbs/images/g/DvMAAOSw1J5bhYo-/s-l225.jpg" class="rounded float-start" alt="300" width="300">
       <img src="https://i.pinimg.com/236x/fe/e1/f6/fee1f63dcb831696ee9f787b50dd36b2.jpg" class="rounded float" alt="300" width="300">
     
@@ -75,7 +73,7 @@
       </div>
 
 
-
+      {% endblock %}
 
 
       

@@ -4,10 +4,11 @@ from .models import *
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-
+@login_required(login_url='/')
 def index(request):
     
     return render(request, 'index.html')
@@ -20,16 +21,20 @@ def about(request):
 def contacto(request):
     return render(request, "contacto.html")
 
-def lte(request):
-    if request.method == 'POST':
+def login(request):
+    if request.method == "POST":
         username=request.POST.get('username')
         password=request.POST.get('password')
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request, username)
-            redirect('/register/')
+         login(request, user)
+        return redirect('principal/')
     return render(request, "lte.html")
+
+def logot(request):
+    logout(request)
+    return redirect("/")
 
 
 class Registro(UserCreationForm):
@@ -44,6 +49,7 @@ def registro(request):
         form = Registro(request.POST)
         if form.is_valid():
            form.save()
+          
     return render(request, "register.html", {"form":form})
 
 def clientes(request):
