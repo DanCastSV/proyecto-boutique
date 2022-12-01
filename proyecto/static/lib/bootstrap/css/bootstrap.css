@@ -80,6 +80,15 @@
   box-sizing: border-box;
 }
 
+.flotante {
+	width: 60px;
+	height: 60px;
+
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   :root {
     scroll-behavior: smooth;

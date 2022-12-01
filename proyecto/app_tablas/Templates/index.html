@@ -11,7 +11,7 @@
     
     <nav class="navbar  navbar-expand" style="background-color: #00c781;">
         <div class="container-fluid">
-          <a class="navbar-brand" href="http://127.0.0.1:8000"><b>Boutique</b> perla de oriente</a>
+          <a class="navbar-brand" href="/principal"><b>Boutique</b> perla de oriente</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -24,9 +24,11 @@
                 <a class="nav-link active" href="/about">Acerca de nosotros</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link active" href="/clientes">clientes</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link active" href="/cerrarsesion/">cerrar sesion</a>
               </li>
-             
        
           </div>
         </div>
@@ -34,47 +36,104 @@
       {% block content%}
 
       <div align="center"><h1>Bienvenidos a Boutique "Perla de oriente"</h1></div>
-      {{request.user}}
-      <br>
-      <img src="https://i.ebayimg.com/thumbs/images/g/DvMAAOSw1J5bhYo-/s-l225.jpg" class="rounded float-start" alt="300" width="300">
-      <img src="https://i.pinimg.com/236x/fe/e1/f6/fee1f63dcb831696ee9f787b50dd36b2.jpg" class="rounded float" alt="300" width="300">
-    
-      <img src="https://i.pinimg.com/236x/f1/da/ac/f1daac59c1c0372af1edcacc4fc6f0b3.jpg" class="rounded float" alt="300" width="300">
-      <img src="https://hmchile.vtexassets.com/arquivos/ids/4654377/Conjunto-de-2-piezas-en-tela-de-buzo---Marron-grisaceo-Gato---H-M-CL.jpg?v=1754809722" class="rounded float" alt="300" width="250">
-      <img src="https://i.pinimg.com/originals/f7/de/11/f7de1137f540244cb473139df2468a5d.jpg" class="rounded float-end" alt="300" width="300"><br>
-      <p> </p><br>
-      <p> </p><br>
+      <div align="center"><h2>¡Bienvenido {{request.user}}!</h2></div>
+      
     
       <div align="center"><h2><b>Algunos de nuestros productos</b></h2></div>
 
-      <p> </p><br>
-      <p> </p><br>
-    
-      <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://t2.uc.ltmcdn.com/es/posts/8/9/9/vestidos_para_chicas_bajitas_49998_2_600.jpg" class="d-block w-100" alt="200" width="500">
-          </div>
-          <div class="carousel-item">
-            <img src="https://image.shutterstock.com/image-photo/woman-blouse-summer-cotton-on-260nw-1832329087.jpg" class="d-block w-100" alt="200" width="500">
-          </div>
-          <div class="carousel-item">
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/pantalones-vaqueros-hombre-1588575521.jpg" class="d-block w-100" alt="200" width="500">
+      <div class="container text-centyer">
+        <div class="row">
+          <div class="col-6 ">
+  <h2>Ropa de mujer</h2>
+            <table id="mostrar" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                <th><div class="card" style="width: 18rem;">
+                  <img src="https://img.hollisterco.com/is/image/anf/KIC_359-2814-0402-210_prod1?policy=product-large" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Vestidos</h5>
+                    <p class="card-text">Vestidos comodos para diferentes ocasiones</p>
+                    <a href="#" class="btn btn-primary">Ver más estilos</a>
+                  </div>
+                </div></th>
+                <th><div class="card" style="width: 18rem;">
+                  <img src="https://img.hollisterco.com/is/image/anf/KIC_339-2753-0055-200_prod1?policy=product-large" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Blusas</h5>
+                    <p class="card-text">Blusas comodas para diferentes ocasiones.</p>
+                    <a href="#" class="btn btn-primary">Ver más estilos</a>
+                  </div>
+                </div></th>
+                <th><div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div></th>
+                <th><div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div></th>
+
+              </tr>
+              </thead>
+            </table>
+            <h2>Ropa de caballero</h2>
+              <table id="mostrar" class="table table-bordered table-hover">
+              <thead>
+                
+                <tr>
+                  <th><div class="card" style="width: 18rem;">
+                    <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/9b7aa99d953748a1a9c4ada9011a943b_9366/camiseta-titular-boca-juniors-21-22.jpg" class="card-img-top" alt="300">
+                    <div class="card-body">
+                      <h5 class="card-title">Playeras de futbol</h5>
+                      <p class="card-text">Playeras de futbol de distintos equipos y selecciones, diferentes tallas </p>
+                      <a href="/playerasfut/" class="btn btn-primary">Ver más estilos</a>
+                    </div>
+                  </div></th>
+                  <th><div class="card" style="width: 18rem;">
+                    <img src="https://img.hollisterco.com/is/image/anf/KIC_325-2510-2623-100_prod1?policy=product-large" class="card-img-top" alt="100 ">
+                    <div class="card-body">
+                      <h5 class="card-title">Camisas de vestir</h5>
+                      <p class="card-text">Camisas elegantes para caballeros de diferentes marcas, colores y estilos.</p>
+                      <a href="#" class="btn btn-primary">Ver estilos</a>
+                    </div>
+                  </div></th>
+                  <th><div class="card" style="width: 18rem;">
+                    <img src="https://img.hollisterco.com/is/image/anf/KIC_330-1517-1325-900_prod1?policy=product-large" class="card-img-top" alt="100">
+                    <div class="card-body">
+                      <h5 class="card-title">Pantalones</h5>
+                      <p class="card-text">pnatalones para caballero en diferentes estilos y colores</p>
+                      <a href="#" class="btn btn-primary">Ver estilos </a>
+                    </div>
+                  </div></th>
+                  <th><div class="card" style="width: 18rem;">
+                    <img src="https://img.hollisterco.com/is/image/anf/KIC_328-2670-1378-900_prod1?policy=product-large" class="card-img-top" alt="100">
+                    <div class="card-body">
+                      <h5 class="card-title">Shorts</h5>
+                      <p class="card-text">Shorts de calidad para caballeros para diferentes ocasiones.</p>
+                      <a href="#" class="btn btn-primary">Ver estilos</a>
+                    </div>
+                  </div></th>
+                  
+
+                </tr>
+              </thead>
+            </table>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
-
+    
+  </div>
 
       {% endblock %}
 
-
-      
+      <button class="flotante">+</button>
+          
     </body>

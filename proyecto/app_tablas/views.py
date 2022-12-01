@@ -21,7 +21,7 @@ def about(request):
 def contacto(request):
     return render(request, "contacto.html")
 
-def login(request):
+def inicio(request):
     if request.method == "POST":
         username=request.POST.get('username')
         password=request.POST.get('password')
@@ -90,3 +90,8 @@ def elimclientes(request,id):
     cliente=Cliente.objects.get(id=id)
     cliente.delete()
     return redirect('/clientes')
+
+def playerasfut(request):
+
+    return render (request, "playerasfut.html")
+
