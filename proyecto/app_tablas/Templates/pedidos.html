@@ -1,0 +1,110 @@
+{%load static%}
+
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Boutique</title>
+    <link href="{%static 'lib/bootstrap/css/bootstrap.css'%}" rel="stylesheet" >
+<body>
+  <script src="{%static 'lib/bootstrap/js/bootstrap.bundle.js'%}"></script>
+    
+    <nav class="navbar  navbar-expand" style="background-color: #00c781;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/principal"><b>Boutique</b> perla de oriente</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/contacto">Contactanos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/about">Acerca de nosotros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/clientes">clientes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/cerrarsesion/">cerrar sesion</a>
+              </li>
+       
+          </div>
+        </div>
+      </nav>
+
+      {% block content%}
+      <div class="container text-centyer">
+        <div class="row">
+          <div class="col-6 ">
+            <form action="/aggpedido/", method="post">{% csrf_token %}
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Numero de pedido</label>
+                <input type="number" class="form-control" name="num"  id="num" placeholder="56">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Fecha en la que se realiza el pedido</label>
+                <input type="date" class="form-control" name="date" id="date" placeholder="28/09/21">
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" name="save" id="save">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Entregado
+                </label>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">cliente</label>
+                <input type="text" class="form-control" name="cli" id="cli" placeholder="juan">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Producto</label>
+                <input type="text" class="form-control" name="pro" id="pro" placeholder="camisa">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Talla</label>
+                <input type="text" class="form-control" name="size" id="size" placeholder="camisa">
+              </div>
+              <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">agregar registro</button>
+          </div>
+        </form>
+            <table id="mostrar" class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                <th>Numero de pedido</th>
+                <th>fecha de realiz.</th>
+                <th>estado</th>
+                <th>cliente</th>
+                <th>producto</th>
+                <th>talla</th>
+                <th>borrar</th>
+                <th>editar</th>
+            </tr>
+              </thead>
+              <tbody>
+                {%for ped in pedido %}
+                <tr>
+                  <td>{{ped.numero}}</td>
+                  <td>{{ped.fecha}}</td>
+                  <td>{{ped.entregado}}</td>
+                  <td>{{ped.nombre_c}}</td>
+                  <td>{{ped.nombre_p}}</td>
+                  <td>{{ped.talla}}</td>
+                  <td><a href="/editclientes/{{cli.id}}" class="btn btn-outline-warning">Editar</a></td>
+                  <td><a href="/elimclientes/{{cli.id}}" class="btn btn-outline-danger">Eliminar</a></td>
+                  {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+
+ 
+
+
+
+
+</body>

@@ -65,7 +65,19 @@ def regclientes(request):
     nombre=nombre, direccion=direccion, email=email, tfno=tfno
    )
 
+
    return redirect('/clientes')
+
+def aggpedido(request):
+    numero=request.POST['num']
+    fecha=request.POST['date']
+    pedido= Pedido.objects.create(
+     numero=numero, fecha=fecha)
+
+    
+
+    return redirect('/pedidos')
+
 
 def editclientes(request, id):
     cliente=Cliente.objects.get(id=id)
@@ -95,3 +107,11 @@ def playerasfut(request):
 
     return render (request, "playerasfut.html")
 
+def pedido(request):
+    pedido = Pedido.objects.all()
+
+    return render (request, 'pedidos.html', {"pedido":pedido})
+
+def registrarped (request):
+
+    return HttpResponse 
