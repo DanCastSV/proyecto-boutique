@@ -15,7 +15,12 @@ urlpatterns = [
     path('guarclientes/<id>', guarclientes),
     path('playerasfut/', playerasfut),
     path('pedidos/', pedido),
-    path('aggpedido/', aggpedido)
+    path('aggpedido/', aggpedido),
+    path('camisash/', camisash),
+     path('pantalonesh/', pantalonesh),
+     path('shorts/', shorts),
+     path('vestidos/', vestidos),
+     path('blusas/', blusas)
     
 
 ]

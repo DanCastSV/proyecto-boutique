@@ -12,7 +12,23 @@ from django.contrib.auth.decorators import login_required
 def index(request):
     
     return render(request, 'index.html')
+def camisash(request):
+    
+    return render(request, 'camisash.html')
+def shorts(request):
 
+    return render(request, 'shorts.html')
+
+def vestidos(request):
+
+    return render(request, 'vestidos.html')
+
+def blusas(request):
+
+    return render(request, "blusas.html")
+def pantalonesh(request):
+    
+    return render(request, 'pantalonesh.html')
 
 def about(request):
 

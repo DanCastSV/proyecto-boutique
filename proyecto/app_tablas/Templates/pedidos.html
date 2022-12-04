@@ -16,19 +16,23 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/contacto">Contactanos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/about">Acerca de nosotros</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/clientes">clientes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="/cerrarsesion/">cerrar sesion</a>
-              </li>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/contacto">Contactanos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/about">Acerca de nosotros</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/clientes">clientes</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/pedidos">pedidos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="/cerrarsesion/">cerrar sesion</a>
+                </li>
        
           </div>
         </div>
@@ -78,8 +82,7 @@
                 <th>cliente</th>
                 <th>producto</th>
                 <th>talla</th>
-                <th>borrar</th>
-                <th>editar</th>
+
             </tr>
               </thead>
               <tbody>
@@ -91,8 +94,6 @@
                   <td>{{ped.nombre_c}}</td>
                   <td>{{ped.nombre_p}}</td>
                   <td>{{ped.talla}}</td>
-                  <td><a href="/editclientes/{{cli.id}}" class="btn btn-outline-warning">Editar</a></td>
-                  <td><a href="/elimclientes/{{cli.id}}" class="btn btn-outline-danger">Eliminar</a></td>
                   {% endfor %}
                 </tr>
               </tbody>
